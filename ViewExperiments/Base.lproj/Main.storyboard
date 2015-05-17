@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,51 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9lq-PR-iex" customClass="SCSpringExpandView">
+                                <rect key="frame" x="250" y="66" width="100" height="468"/>
+                                <color key="backgroundColor" red="0.65490196079999996" green="0.1529411765" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="0GM-D2-N0j"/>
+                                    <constraint firstAttribute="height" constant="468" id="rvv-Yo-CdD"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iVl-hJ-A7z">
+                                <rect key="frame" x="16" y="20" width="53" height="30"/>
+                                <state key="normal" title="Expand">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="expandButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zTy-sN-mKx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qip-Sh-82e">
+                                <rect key="frame" x="524" y="20" width="60" height="30"/>
+                                <state key="normal" title="Collapse">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="collapseButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nmF-rr-Px1"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="9lq-PR-iex" secondAttribute="centerX" id="1qy-5F-PT5"/>
+                            <constraint firstItem="Qip-Sh-82e" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="IX1-p2-s1j"/>
+                            <constraint firstItem="Qip-Sh-82e" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Jt4-j1-pJB"/>
+                            <constraint firstItem="iVl-hJ-A7z" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="bze-Q8-Trm"/>
+                            <constraint firstItem="iVl-hJ-A7z" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="jsU-ey-2gd"/>
+                            <constraint firstAttribute="centerY" secondItem="9lq-PR-iex" secondAttribute="centerY" id="zoN-Tz-7IT"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="springExpandView" destination="9lq-PR-iex" id="xci-NF-bJ3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="441" y="375"/>
         </scene>
     </scenes>
 </document>
